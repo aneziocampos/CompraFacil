@@ -1,0 +1,36 @@
+CompraFacil
+===========
+
+CompraFacil is a plugin that implements CompraFacil Payments.
+
+
+Example
+=======
+
+This is a exemple of how it can work:
+
+order = Order.create #standard order in my project
+
+# Filling with data
+@comprafacil = CompraFacil.new
+@comprafacil.origin =            "My project"
+@comprafacil.user =               "MyLogin"
+@comprafacil.password =           "123456"
+@comprafacil.value =              10
+@comprafacil.info =               "Order #{order.id}"
+@comprafacil.name =               "Anezio Marques de Campos Junior"
+@comprafacil.address =            "Antonio Baldan, 140"
+@comprafacil.zip_code =           "123456789"
+@comprafacil.city =               "Londrina"
+@comprafacil.phone =              "987654321"
+@comprafacil.email =              "anezio@hooppe.com"
+@comprafacil.external_reference = order.id
+@comprafacil.nif =                "12345678"
+
+#sending order to comprafacil servers
+@comprafacil.send_order!
+
+#retrieving the reference from comprafacil
+order.reference = @comprafacil.reference
+
+Copyright (c) 2010 Anezio Campos, released under the MIT license
