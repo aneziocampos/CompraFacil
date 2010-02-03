@@ -1,3 +1,5 @@
+require 'soap/wsdlDriver'
+
 class CompraFacil
   
   attr_accessor :origin, 
@@ -20,7 +22,8 @@ class CompraFacil
   
   attr_reader   :user_type, :server_address, :insert_mode
   
-  def initialize
+  def initialize(attrs = {})
+    attrs.each {|key, value| self.send("#{key}=", value)}
     @user_id_back_office = -1
     self.payment_company = "multibanco"
     self.user_type = 10241

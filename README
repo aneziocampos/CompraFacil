@@ -11,7 +11,7 @@ This is a exemple of how it can work:
 
 order = Order.create #standard order in my project
 
-# Filling with data
+# Filling with data field by field
 @comprafacil = CompraFacil.new
 @comprafacil.origin =            "My project"
 @comprafacil.user =               "MyLogin"
@@ -27,10 +27,20 @@ order = Order.create #standard order in my project
 @comprafacil.external_reference = order.id
 @comprafacil.nif =                "12345678"
 
+# Filling with hash
+
+@comprafacil = CompraFacil.new({ :origin => "My project", :user => "MyLogin", ... })
+
+
 #sending order to comprafacil servers
 @comprafacil.send_order!
 
 #retrieving the reference from comprafacil
 order.reference = @comprafacil.reference
+
+Contributors
+============
+Anezio Campos(Creator)
+Eduardo Fiorezi @eduardofiorezi
 
 Copyright (c) 2010 Anezio Campos, released under the MIT license

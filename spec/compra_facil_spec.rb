@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.expand_path(File.dirname(__FILE__) + '/../lib/compra_facil')
 
 describe CompraFacil do
   
@@ -41,6 +41,12 @@ describe CompraFacil do
     @compra_facil.reference.should == "200-000-000"
     @compra_facil.error.should == "Error on name"
     @compra_facil.payment_company == "multibanco"
+  end
+  
+  it "should fill fields with a hash" do
+    c = CompraFacil.new({:user => "test_user", :password => "valid_password"})
+    c.user.should == "test_user"
+    c.password.should == "valid_password"
   end
   
   it "should set some fields in a new object" do
