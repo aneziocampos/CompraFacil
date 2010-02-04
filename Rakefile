@@ -1,15 +1,18 @@
+require 'rubygems'
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
+require 'spec'
+require 'spec/rake/spectask'
 
-desc 'Default: run unit tests.'
-task :default => :test
+desc 'Default: run specs.'
+task :default => :spec
 
-desc 'Test the compra_facil plugin.'
-Rake::TestTask.new(:test) do |t|
+desc 'spec the compra_facil plugin.'
+Rake::TestTask.new(:spec) do |t|
   t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
+  t.libs << 'spec'
+  t.pattern = 'spec/**/*_spec.rb'
   t.verbose = true
 end
 

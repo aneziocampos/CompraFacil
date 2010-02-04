@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'spec'
 require File.expand_path(File.dirname(__FILE__) + '/../lib/compra_facil')
 
 describe CompraFacil do
